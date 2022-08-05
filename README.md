@@ -1,6 +1,9 @@
 # JavaScript-Password-Generator
 A password generator with user-defined length and character-type parameters
 
+
+
+
 ## What I did: 
 
 1. Created repo and readme
@@ -10,37 +13,25 @@ A password generator with user-defined length and character-type parameters
 5. Created methods for the promptValues object that check for T/F for each criteria and for every true found add the corresponding array to a superarray.
 6. Added a random number generator
 7. Created a function that uses random numbers to pick out positions in the superarray and write the corresponding characters to the variable 'password'
+8. Added error state for when user doesn't choose any password parameters.
+9. I couldn't figure out how to make a random password that still included one of each character type selected, but I left my attempts in at the end of my code and just commented them out. 
 
 
-
-## To Do: 
-
-1. Figure out how to make sure at least one of each selected criteria makes it into the password.
-
-## Criteria:
-
-### Style:
-
-1. clean and polished
-2. responsive
-
-### Functionality:
-
-1. Push button to open prompt
-2. Prompt asks for pw criteria
-3. length: 8-128 characters
-4. character type: lower, upper, numeric, special
-5. validate input, always make sure one is selected
-6. generate password
-7. display password in alert or write it to the page
 
 ## Link to live site:
+
+
+
 
 
 ## Link to GitHub repository
 
 
+
+
 ## Screenshot of live site
+
+
 
 
 ## Requirements

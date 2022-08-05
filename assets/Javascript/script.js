@@ -23,11 +23,11 @@ function writePassword() {
 
 var minPasswordLength = 8;
 var maxPasswordLength= 128;
-var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+var numberArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 var lowercaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var uppercaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var symbolArray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '.', ',', '?', '!'];
-//var superArray = [];
+
 
 //User Input Catcher
 
@@ -36,9 +36,10 @@ var symbolArray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '.', ',', '
 
 function generatePassword() {
 
-    //This clears any values that might have been added to the superArray in the last run
+    
     var superArray = [];
 
+    //This clears any values that might have been added to the superArray in the last run
     var password = "";
 
     window.alert (
@@ -65,12 +66,13 @@ function generatePassword() {
     }
 
     //prompts start here
+
     //prompts user to choose password length
     var passLengthPrompt = window.prompt (
         "To set your password's length, pick a number between 8 and 128."
     );
         
-    console.log (passLengthPrompt);
+    //console.log (passLengthPrompt);
 
    //Check if they chose a valid number 
    if ((passLengthPrompt < minPasswordLength) || (passLengthPrompt > maxPasswordLength)) {
@@ -127,9 +129,12 @@ function generatePassword() {
 
     promptValues.addToPasswordArray ();
 
-    // console.log (promptValues);
-
-    console.log (superArray);
+    //If user doesn't select any criteria, this error pops up.
+    if ((!promptValues.number) && (!promptValues.lowercase) && (!promptValues.uppercase) && (!promptValues.symbol) ){
+        window.alert (
+            "Whoops! Your password must contain at least one type of character. Please try again. You got this :)");
+            return;
+    }
 
    //prompts end here
 
@@ -141,102 +146,108 @@ function generatePassword() {
    }
 
    //This uses random numbers to pick out characters from the superarray and add them to the password
-   for (let i=0; i< promptValues.length; i++){
-    var randomSuperArrayPosition = getRandomInt(0, superArray.length-1);
-    password += superArray[randomSuperArrayPosition];
-   }
 
-   //This is the end of the whole writePassword function
+    function writePassword() {
+        for (let i = 0; i < promptValues.length; i++) {
+            var randomSuperArrayPosition = getRandomInt(0, superArray.length - 1);
+            password += superArray[randomSuperArrayPosition];
+        }
+    }    
 
-    //Keep these together:
+    writePassword();
+
     return password; 
 }
-// together I said
 
 
-//To Do: 
+//I'm leaving these here to show that I worked at catching for the cases where the random number generator didn't guarantee that each kind of input would be selected from the superarray. It doesn't work, but I'm leaving it because I did the work.
 
-//Make sure the password has at least one of each chosen thing.
+//     checkCriteriaNumber ();
+//     checkCriteriaLowercase ();
+//     checkCriteriaUppercase ();
+//     checkCriteriaSymbol ();
+    
+    //check for number
+//     function checkCriteriaNumber () {
+//     var result = ""; //"false";
+//     if (promptValues.number === true) {
+//     for (var i = 0; i < password.length; i++) {
+//         result = password.charAt(i); //character from pw string
+//     console.log (result);
+//         if (numberArray.includes(result) === true) {
+//             console.log ("number I found a character");
+//             break; //var NumberCheck = True;
+//         } else if (i < password.length-1) {
+//             console.log ("number I did not find a character");
+//             continue;
+//         } else {
+//             console.log ("Number missing new password");
+//             password = "";
+//             writePassword ();
+//             checkCriteriaNumber ();
+//         }
+// }}}
 
+//     //check for lowercase if lowercase was selected
+//     function checkCriteriaLowercase() {
+//         var result = "";
+//         if (promptValues.lowercase === true) {
+//         for (var i = 0; i < password.length; i++) {
+//             result = password.charAt(i); //character from pw string
+//         console.log (result);
+//             if (lowercaseArray.includes(result) === true) {
+//                 console.log ("check lower I found a character");
+//                 break;
+//             } else if (i < password.length-1) {
+//                 console.log ("check lower I did not find a character");
+//                 continue;
+//             } else {
+//                 console.log ("I am missing lowercase, generate new password");
+//                 password = "";
+//                 writePassword ();
+//                 checkCriteriaLowercase ();
+//             }
+// }}}
 
-//for each criteria selected:
+//     //check for uppercase
+//     function checkCriteriaUppercase () {
+//         var result = "";
+//         if (promptValues.uppercase === true) {
+//         for (var i = 0; i < password.length; i++) {
+//             result = password.charAt(i); //character from pw string
+//         console.log (result);
+//             if (uppercaseArray.includes(result) === true) {
+//                 console.log ("check upper I found a character");
+//                 break;
+//             } else if (i < password.length-1) {
+//                 console.log ("check upper I did not find a character");
+//                 continue;
+//             } else {
+//                 console.log ("Upper missing new password");
+//                 password = "";
+//                 writePassword ();
+//                 checkCriteriaUppercase ();
+//             }
+// }}}
 
-//check if promptValues.criteria === 'true', if yes, make sure password has a value from that array, if it doesn't, empty password, and run promptValues.AddToPasswordArray again.
-
-//was upper selected? if yes look for upper and if no upper, run again
-    //if no go to next criteria
-
-    //promptValues.critera === 'true'
-    //check password for criterion
-    //if criterion is present move forward
-    //if absent empty password and run promptValues.AddToPasswordArray over again
-
-
-
-//The 4 thingie that I don't really get (but I'm totally willing to).
-
-// 
-
-
-
-
-
-
-
-       //Start a thing that chooses random values for each of the user's inputs.
-
-    // if (promptValues.number === "True")
-    // if (promptValues.lowercase === "True")
-    // if (promptValues.uppercase === "True")
-    // if (promptValues.symbol === "True")
-
-   
-        // if (promptValues.number === "True") {
-        //     superArray = superArray.concat(numberArray);
-        // }
-        // if (promptValues.lowercase === "True") {
-        //     superArray =superArray.concat(lowercaseArray);
-        // }
-        // if (promptValues.uppercase === "True") {
-        //     superArray = superArray.concat(uppercaseArray);
-        // }
-        // if (promptValues.symbol === "True") {
-        //     superArray = superArray.concat(symbolArray);
-        // }
-        
-
-//check the password at the end 
-
-
-
-
-
-
-// function checkPromptAndAddToSuperArray(typeRequest, myArray){
-//     if(typeRequest == true){
-//         superArray = superArray.concat(myArray);
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// //check for symbol
+// function checkCriteriaSymbol () {
+//     var result = "";
+//     if (promptValues.symbol === true) {
+//     for (var i = 0; i < password.length; i++) {
+//         result = password.charAt(i); //character from pw string
+//     console.log (result);
+//         if (symbolArray.includes(result) === true) {
+//             console.log ("symbol I found a character");
+//             break;
+//         } else if (i < password.length-1) {
+//             console.log ("symbol I did not find a character");
+//             continue;
+//         } else {
+//             console.log ("symbol missing new password");
+//             password = "";
+//             writePassword ();
+//             password = ')(*^&%*(%';
+//             checkCriteriaSymbol ();
+//         }
+// }}}

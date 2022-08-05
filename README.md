@@ -18,8 +18,11 @@ A password generator with user-defined length and character-type parameters
 
 
 
+
+
 ## Link to live site:
 
+https://cheloe.github.io/JavaScript-Password-Generator/
 
 
 
@@ -27,43 +30,14 @@ A password generator with user-defined length and character-type parameters
 ## Link to GitHub repository
 
 
+https://github.com/Cheloe/JavaScript-Password-Generator
+
+
+
 
 
 ## Screenshot of live site
 
 
-
-
-## Requirements
-
-### Technical Acceptance Criteria: 40%
-
-#### Deployment: 32%
-1. Application deployed at live URL.
-
-2. Application loads with no errors.
-
-3. Application GitHub URL submitted.
-
-4. GitHub repository that contains application code.
-
-#### Application Quality: 15%
-1. Application user experience is intuitive and easy to navigate.
-
-1. Application user interface style is clean and polished.
-
-2. Application resembles the mock-up functionality provided in the Challenge instructions.
-
-#### Repository Quality: 13%
-
-1. Repository has a unique name.
-
-2. Repository follows best practices for file structure and naming conventions. 
-
-3. Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-4. Repository contains multiple descriptive commit messages.
-
-5. Repository contains quality readme file with description, screenshot, and link to deployed application.
-
+![Portfolio Screenshot](./assets/Images/Live-Site-Screenshot.png)
 
